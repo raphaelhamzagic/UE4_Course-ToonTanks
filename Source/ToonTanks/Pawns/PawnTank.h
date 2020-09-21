@@ -36,6 +36,8 @@ private:
 	void CalculateRotateInput(float Value);
 	void Rotate();
 
+	APlayerController* PlayerController = nullptr;
+
 public:
 	APawnTank();
 
@@ -48,4 +50,5 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void HandleDestruction() override;
 };
