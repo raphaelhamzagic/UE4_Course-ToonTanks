@@ -29,7 +29,8 @@ AProjectileBase::AProjectileBase()
 // Called when the game starts or when spawned
 void AProjectileBase::BeginPlay()
 {
-	Super::BeginPlay();	
+	Super::BeginPlay();
+	UGameplayStatics::PlaySoundAtLocation(GetWorld(), LaunchSound, GetActorLocation());
 }
 
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
@@ -41,6 +42,7 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActo
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation());
 			UGameplayStatics::ApplyDamage(OtherActor, Damage, ProjectileOwner->GetInstigatorController(), this, DamageType);
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), HitSound, GetActorLocation());
 		}
 
 		Destroy();

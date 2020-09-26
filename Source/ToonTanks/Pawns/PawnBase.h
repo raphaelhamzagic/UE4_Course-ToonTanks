@@ -37,6 +37,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* DeathParticle;
 
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* DeathSound;
+
 protected:
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();
