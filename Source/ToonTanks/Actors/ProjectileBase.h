@@ -30,6 +30,12 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 	float Damage = 50.f;
 
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	UParticleSystemComponent* ParticleTrail = nullptr;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	UParticleSystem* HitParticle;
+
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 	
